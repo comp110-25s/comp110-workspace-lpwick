@@ -28,17 +28,17 @@ def favorite_color(fav_color: dict[str, str]) -> str:
     color_count = {}
     for key in fav_color:
         color = fav_color[key]
-        if key in color_count:
-            color_count[color] = +1
+        if color in color_count:
+            color_count[color] += 1
         else:
             color_count[color] = 1
     max_count = 0
-    for key in fav_color:
-        color = fav_color[key]
+    most_frequent_color = ""
+    for color in color_count:
         if color_count[color] > max_count:
             max_count = color_count[color]
-            return color
-    return ""
+            most_frequent_color = color
+    return most_frequent_color
 
 
 def bin_len(strings: list[str]) -> dict[int, set[str]]:
